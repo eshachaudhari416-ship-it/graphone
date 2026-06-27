@@ -3,25 +3,68 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #FF3B5C;
+  --primary-hover: #e0324f;
+  --bg: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text: #0a0a0a;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --card: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-family: 'Inter', sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.tag {
+  @apply text-xs px-2 py-1 rounded-full font-medium;
+}
+
+.tag-pink {
+  @apply bg-pink-50 text-pink-600;
+}
+
+.tag-blue {
+  @apply bg-blue-50 text-blue-600;
+}
+
+.tag-purple {
+  @apply bg-purple-50 text-purple-600;
+}
+
+.tag-green {
+  @apply bg-green-50 text-green-600;
+}
+
+.card-hover {
+  @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+}
+
+.btn-primary {
+  @apply bg-[#FF3B5C] text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#e0324f] transition-colors;
+}
+
+.btn-outline {
+  @apply border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-50 transition-colors;
+}
+
+.section-title {
+  @apply text-lg font-bold text-gray-900 mb-1;
+}
+
+.section-subtitle {
+  @apply text-sm text-gray-500 mb-4;
 }
