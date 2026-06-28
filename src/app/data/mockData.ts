@@ -260,8 +260,8 @@ export const openAIDetail = {
     { name: "Operator", description: "AI agent for tasks", emoji: "🤖" },
     { name: "Agents", description: "Autonomous AI agents", emoji: "⚡" },
   ],
-  competitors: ["Anthropic", "Google DeepMind", "xAI", "Mistral AI", "Cohort"],
-  similar: ["Anthropic", "Mistral AI", "Cohort"],
+  competitors: ["Anthropic", "Google DeepMind", "xAI", "Mistral AI", "Cohere"],
+  similar: ["Anthropic", "Mistral AI", "Cohere"],
   news: [
     { title: "OpenAI launches GPT-4o with improved multimodal capabilities", date: "May 13, 2025" },
     { title: "OpenAI raises $40B in new funding round led by SoftBank", date: "Mar 31, 2025" },
