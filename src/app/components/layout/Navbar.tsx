@@ -2,14 +2,25 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Search, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navLinks = [
+    { label: "Companies", href: "/" },
+    { label: "Products", href: "/products" },
+    { label: "Investors", href: "/investors" },
+    { label: "Funding", href: "/funding" },
+    { label: "Jobs", href: "/jobs" },
+    { label: "News", href: "/news" },
+  ];
 
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-14">
-        
+
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <span className="text-[#FF3B5C]">●</span>
@@ -28,18 +39,22 @@ export default function Navbar() {
 
         {/* Nav Links */}
         <div className="hidden md:flex items-center gap-6 text-sm text-gray-600">
-          <Link href="/" className="hover:text-[#FF3B5C] font-medium text-[#FF3B5C] border-b-2 border-[#FF3B5C] pb-0.5">
-            Companies
-          </Link>
-          <Link href="/products" className="hover:text-[#FF3B5C] transition-colors">
-            Products
-          </Link>
-          <Link href="/investors" className="hover:text-[#FF3B5C] transition-colors">
-            Investors
-          </Link>
-          <span className="hover:text-[#FF3B5C] transition-colors cursor-pointer">Funding</span>
-          <span className="hover:text-[#FF3B5C] transition-colors cursor-pointer">Jobs</span>
-          <span className="hover:text-[#FF3B5C] transition-colors cursor-pointer">News</span>
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`hover:text-[#FF3B5C] transition-colors font-medium ${
+                  isActive
+                    ? "text-[#FF3B5C] border-b-2 border-[#FF3B5C] pb-0.5"
+                    : "text-gray-600"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Auth Buttons */}
@@ -47,9 +62,7 @@ export default function Navbar() {
           <button className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 transition-colors">
             Log In
           </button>
-          <button className="btn-primary">
-            Sign up
-          </button>
+          <button className="btn-primary">Sign up</button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -64,12 +77,15 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 flex flex-col gap-4 text-sm text-gray-700">
-          <Link href="/" className="text-[#FF3B5C] font-medium">Companies</Link>
-          <Link href="/products" className="hover:text-[#FF3B5C]">Products</Link>
-          <Link href="/investors" className="hover:text-[#FF3B5C]">Investors</Link>
-          <span className="hover:text-[#FF3B5C] cursor-pointer">Funding</span>
-          <span className="hover:text-[#FF3B5C] cursor-pointer">Jobs</span>
-          <span className="hover:text-[#FF3B5C] cursor-pointer">News</span>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={pathname === link.href ? "text-[#FF3B5C] font-medium" : "hover:text-[#FF3B5C]"}
+            >
+              {link.label}
+            </Link>
+          ))}
           <div className="flex gap-2 pt-2 border-t border-gray-100">
             <button className="btn-outline flex-1">Log In</button>
             <button className="btn-primary flex-1">Sign up</button>
