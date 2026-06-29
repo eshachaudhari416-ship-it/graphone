@@ -4,7 +4,7 @@ import Footer from "../../components/layout/Footer";
 import { sequoiaDetail } from "../../data/mockData";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis } from "recharts";
 
-export default function InvestorProfile() {
+export default function InvestorProfile({ params }: { params: { slug: string } }) {
   const investor = sequoiaDetail;
 
   return (
