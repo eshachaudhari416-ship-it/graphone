@@ -1,4 +1,5 @@
 "use client";
+import DarkModeToggle from "../ui/DarkModeToggle";
 import Link from "next/link";
 import { useState } from "react";
 import { Search, Menu, X } from "lucide-react";
@@ -58,13 +59,13 @@ export default function Navbar() {
         </div>
 
         {/* Auth Buttons */}
-        <div className="hidden md:flex items-center gap-2">
-          <button className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 transition-colors">
-            Log In
-          </button>
-          <button className="btn-primary">Sign up</button>
-        </div>
-
+<div className="hidden md:flex items-center gap-2">
+  <DarkModeToggle />
+  <button className="text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 transition-colors">
+    Log In
+  </button>
+  <button className="btn-primary">Sign up</button>
+</div>
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-gray-600"

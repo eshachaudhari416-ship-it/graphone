@@ -68,3 +68,41 @@ body {
 .section-subtitle {
   @apply text-sm text-gray-500 mb-4;
 }
+.dark body {
+  background: #0a0a0a;
+  color: #f9fafb;
+}
+
+.dark nav {
+  background: #111111;
+  border-color: #222222;
+}
+
+.dark .bg-white {
+  background: #111111 !important;
+}
+
+.dark .bg-gray-50 {
+  background: #1a1a1a !important;
+}
+
+.dark .border-gray-100,
+.dark .border-gray-200 {
+  border-color: #222222 !important;
+}
+
+.dark .text-gray-900 {
+  color: #f9fafb !important;
+}
+
+.dark .text-gray-700 {
+  color: #e5e7eb !important;
+}
+
+.dark .text-gray-600 {
+  color: #d1d5db !important;
+}
+
+.dark .text-gray-500 {
+  color: #9ca3af !important;
+}
