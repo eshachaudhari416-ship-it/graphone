@@ -24,6 +24,81 @@ const investorTypes = [
   { type: "Family Offices", count: "198", emoji: "🏠" },
 ];
 
+const backingWinners = [
+  {
+    company: "OpenAI",
+    logo: "⬛",
+    investors: ["Microsoft", "Thrive Capital", "Khosla Ventures", "Founders Fund"],
+  },
+  {
+    company: "Anthropic",
+    logo: "🔺",
+    investors: ["Google Ventures", "Spark Capital", "Sound Ventures", "Lightspeed"],
+  },
+  {
+    company: "Perplexity",
+    logo: "🔍",
+    investors: ["a16z", "Databricks", "Jeff Bezos", "IVP"],
+  },
+];
+
+const capitalThemes = [
+  { theme: "AI Agents", count: 214, color: "bg-pink-50 text-pink-600" },
+  { theme: "AI Coding", count: 180, color: "bg-blue-50 text-blue-600" },
+  { theme: "AI Infrastructure", count: 892, color: "bg-purple-50 text-purple-600" },
+  { theme: "Developer Tools", count: 134, color: "bg-green-50 text-green-600" },
+  { theme: "Robotics", count: 89, color: "bg-orange-50 text-orange-600" },
+  { theme: "Healthcare AI", count: 156, color: "bg-red-50 text-red-600" },
+  { theme: "Defense AI", count: 67, color: "bg-gray-50 text-gray-600" },
+  { theme: "Video AI", count: 94, color: "bg-yellow-50 text-yellow-600" },
+];
+
+const emergingInvestors = [
+  { name: "Theory", type: "Venture", stage: "Early stage", focus: "AI first" },
+  { name: "Conviction", type: "Venture", stage: "Seed to it", focus: "AI first" },
+  { name: "Radical", type: "Venture", stage: "Pre-seed to seed", focus: "Deep tech" },
+  { name: "NFPD", type: "Venture", stage: "Global early stage", focus: "AI first" },
+  { name: "South Park", type: "Corporate", stage: "Consumer led", focus: "Investments" },
+];
+
+const investorResearch = [
+  { title: "Who Leads Most Seed Rounds?", date: "2024", emoji: "🌱" },
+  { title: "The Rise of Operator Angels", date: "2024", emoji: "📈" },
+  { title: "State of AI Venture Capital", date: "2024", emoji: "💰" },
+  { title: "AI Capital Flows Report", date: "2024", emoji: "🔄" },
+];
+
+const mostActiveInvestors = [
+  {
+    name: "a16z",
+    portfolio: 60,
+    companies: ["OpenAI", "Cursor", "Perplexity"],
+    logo: "🅰️",
+    color: "from-gray-900 to-gray-700",
+  },
+  {
+    name: "SEQUOIA",
+    portfolio: 80,
+    companies: ["Anthropic", "Linear", "Cursor", "Decagon"],
+    logo: "🌲",
+    color: "from-red-900 to-red-700",
+  },
+  {
+    name: "Lightspeed",
+    portfolio: 45,
+    companies: ["Mistral", "Cohort", "Gamma"],
+    logo: "⚡",
+    color: "from-blue-900 to-blue-700",
+  },
+  {
+    name: "Accel",
+    portfolio: 55,
+    companies: ["Supliful", "Browserbase", "Shipyard"],
+    logo: "🎯",
+    color: "from-blue-600 to-blue-400",
+  },
+];
+
 export default function InvestorsPage() {
   return (
     <main className="min-h-screen bg-white">
@@ -44,18 +119,13 @@ export default function InvestorsPage() {
               <svg className="text-gray-400 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
-              <input
-                type="text"
-                placeholder="Search investors, funds, firms..."
-                className="bg-transparent text-sm outline-none w-full text-gray-600 placeholder-gray-400"
-              />
+              <input type="text" placeholder="Search investors, funds, firms..." className="bg-transparent text-sm outline-none w-full text-gray-600 placeholder-gray-400" />
               <button className="bg-[#FF3B5C] text-white rounded-full p-1.5">
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </button>
             </div>
-            {/* Popular searches */}
             <div className="flex flex-wrap gap-2 mt-4">
               {["AI Agents", "Seed Investors", "Series A", "YC Backers", "India", "OpenAI Portfolio"].map((tag) => (
                 <button key={tag} className="text-xs px-3 py-1.5 rounded-full border border-gray-200 hover:border-[#FF3B5C] hover:text-[#FF3B5C] transition-colors">
@@ -64,18 +134,10 @@ export default function InvestorsPage() {
               ))}
             </div>
           </div>
-
-          {/* Floating investor logos */}
           <div className="hidden md:flex relative w-80 h-64">
             {investors.map((inv, i) => (
-              <div
-                key={inv.id}
-                className={`absolute bg-gradient-to-br ${inv.color} rounded-2xl px-4 py-2 text-white text-sm font-bold shadow-lg`}
-                style={{
-                  top: `${[5, 30, 55, 10, 40, 65][i]}%`,
-                  left: `${[5, 40, 15, 65, 60, 45][i]}%`,
-                }}
-              >
+              <div key={inv.id} className={`absolute bg-gradient-to-br ${inv.color} rounded-2xl px-4 py-2 text-white text-sm font-bold shadow-lg`}
+                style={{ top: `${[5, 30, 55, 10, 40, 65][i]}%`, left: `${[5, 40, 15, 65, 60, 45][i]}%` }}>
                 {inv.shortName}
               </div>
             ))}
@@ -86,11 +148,9 @@ export default function InvestorsPage() {
       {/* Trending Investors */}
       <section className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-4">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-gray-400 bg-gray-100 w-5 h-5 rounded flex items-center justify-center">01</span>
-              <h2 className="section-title">Trending Investors</h2>
-            </div>
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-bold text-gray-400 bg-gray-100 w-5 h-5 rounded flex items-center justify-center">01</span>
+            <h2 className="section-title">Trending Investors</h2>
           </div>
           <button className="text-sm text-gray-500 hover:text-[#FF3B5C]">View all →</button>
         </div>
@@ -107,9 +167,7 @@ export default function InvestorsPage() {
                   </div>
                   <p className="text-xs text-white/70 mt-1">{investor.stage}</p>
                 </div>
-                <button className="text-xs text-white/80 hover:text-white text-left">
-                  View portfolio →
-                </button>
+                <button className="text-xs text-white/80 hover:text-white text-left">View portfolio →</button>
               </div>
             </Link>
           ))}
@@ -167,25 +225,118 @@ export default function InvestorsPage() {
           <button className="text-sm text-gray-500 hover:text-[#FF3B5C]">View all →</button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {investors.slice(0, 4).map((investor) => (
-            <div key={investor.id} className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow">
+          {mostActiveInvestors.map((investor) => (
+            <div key={investor.name} className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow">
               <div className="flex items-center gap-3 mb-3">
                 <div className={`bg-gradient-to-br ${investor.color} w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-sm`}>
-                  {investor.shortName.slice(0, 2)}
+                  {investor.logo}
                 </div>
                 <div>
                   <p className="font-semibold text-sm text-gray-900">{investor.name}</p>
-                  <p className="text-xs text-gray-500">{investor.portfolio_count} portfolio companies</p>
+                  <p className="text-xs text-gray-500">{investor.portfolio} portfolio companies</p>
                 </div>
               </div>
               <div className="flex flex-wrap gap-1">
-                {investor.focus.map((f) => (
-                  <span key={f} className="text-xs bg-gray-50 border border-gray-100 px-2 py-0.5 rounded-full text-gray-600">{f}</span>
+                {investor.companies.map((c) => (
+                  <span key={c} className="text-xs bg-gray-50 border border-gray-100 px-2 py-0.5 rounded-full text-gray-600">{c}</span>
                 ))}
               </div>
               <button className="text-[#FF3B5C] text-xs mt-3 hover:underline">View portfolio →</button>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Investors Backing Winners */}
+      <section className="max-w-7xl mx-auto px-4 py-8">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-bold text-gray-400 bg-gray-100 w-5 h-5 rounded flex items-center justify-center">05</span>
+            <h2 className="section-title">Investors Backing Winners</h2>
+          </div>
+          <button className="text-sm text-gray-500 hover:text-[#FF3B5C]">View all →</button>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {backingWinners.map((item) => (
+            <div key={item.company} className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl">{item.logo}</span>
+                <p className="font-bold text-gray-900">{item.company}</p>
+                <span className="text-xs text-gray-400">Backed by</span>
+              </div>
+              <div className="space-y-2">
+                {item.investors.map((inv) => (
+                  <div key={inv} className="flex items-center gap-2 text-sm text-gray-700">
+                    <span className="w-2 h-2 bg-[#FF3B5C] rounded-full" />
+                    {inv}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Capital Themes */}
+      <section className="max-w-7xl mx-auto px-4 py-8">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-bold text-gray-400 bg-gray-100 w-5 h-5 rounded flex items-center justify-center">06</span>
+            <h2 className="section-title">Capital Themes</h2>
+          </div>
+          <button className="text-sm text-gray-500 hover:text-[#FF3B5C]">View all →</button>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {capitalThemes.map((theme) => (
+            <div key={theme.theme} className={`${theme.color} rounded-xl p-4 cursor-pointer hover:shadow-sm transition-shadow`}>
+              <p className="font-semibold text-sm">{theme.theme}</p>
+              <p className="text-xs opacity-70 mt-1">{theme.count} investors</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Emerging Investors + Investor Research */}
+      <section className="max-w-7xl mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-gray-400 bg-gray-100 w-5 h-5 rounded flex items-center justify-center">07</span>
+                <h2 className="section-title">Emerging Investors</h2>
+              </div>
+              <button className="text-sm text-gray-500 hover:text-[#FF3B5C]">View all →</button>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {emergingInvestors.map((inv) => (
+                <div key={inv.name} className="bg-white border border-gray-100 rounded-xl p-3 hover:shadow-sm cursor-pointer">
+                  <p className="font-bold text-sm text-gray-900">{inv.name}</p>
+                  <p className="text-xs text-gray-500">{inv.type}</p>
+                  <p className="text-xs text-gray-400 mt-1">{inv.stage}</p>
+                  <p className="text-xs text-[#FF3B5C] mt-0.5">{inv.focus}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-gray-400 bg-gray-100 w-5 h-5 rounded flex items-center justify-center">08</span>
+                <h2 className="section-title">Investor Research</h2>
+              </div>
+              <button className="text-sm text-gray-500 hover:text-[#FF3B5C]">View all →</button>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              {investorResearch.map((r) => (
+                <div key={r.title} className="bg-gray-50 border border-gray-100 rounded-xl p-4 hover:shadow-sm cursor-pointer">
+                  <span className="text-2xl mb-2 block">{r.emoji}</span>
+                  <p className="text-sm font-semibold text-gray-900">{r.title}</p>
+                  <p className="text-xs text-gray-400 mt-1">{r.date}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
