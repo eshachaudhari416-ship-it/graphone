@@ -78,17 +78,7 @@ export default function Home() {
             <p className="text-gray-500 text-base mb-6">
               Explore AI startups, unicorns, frontier labs, and emerging companies shaping the future of artificial intelligence.
             </p>
-            <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-3 shadow-sm max-w-md">
-              <svg className="text-gray-400 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              <input type="text" placeholder="Search companies, categories, founders, investors..." className="bg-transparent text-sm outline-none w-full text-gray-600 placeholder-gray-400" />
-              <button className="bg-[#FF3B5C] text-white rounded-full p-1.5">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
-            </div>
+            
           </div>
           <div className="hidden md:flex relative w-80 h-64">
             {companies.slice(0, 6).map((c, i) => (
