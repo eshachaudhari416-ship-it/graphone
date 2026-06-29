@@ -235,7 +235,7 @@ export default function Home() {
         <div className="grid grid-cols-3 md:grid-cols-8 gap-3">
           {categories.map((cat) => (
             <div key={cat} className="flex flex-col items-center text-center p-3 bg-white border border-gray-100 rounded-xl hover:border-[#FF3B5C] hover:shadow-sm transition-all cursor-pointer">
-              <span className="text-xl mb-2">🤖</span>
+              <span className="text-xl mb-2">{["🤖", "💻", "🔍", "🎬", "🎙️", "🏗️", "🏥", "🦾"][categories.indexOf(cat)]}</span>
               <p className="text-xs font-medium text-gray-700">{cat}</p>
               <p className="text-xs text-gray-400 mt-0.5">{Math.floor(Math.random() * 900 + 100)} cos</p>
             </div>
